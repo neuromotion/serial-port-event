@@ -1,15 +1,26 @@
 {
   "name": "serial-port-event",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node.js script to detect event marker's serial port and send event signal",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "find": "node list.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neuromotion/serial-port-event.git"
+  },
+  "author": "Fernando Gelin",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neuromotion/serial-port-event/issues"
+  },
+  "homepage": "https://github.com/neuromotion/serial-port-event#readme",
   "dependencies": {
-    "drivelist": "^8.0.2",
+    "dotenv": "^7.0.0",
+    "fs": "0.0.1-security",
     "serialport": "^7.1.4"
   }
 }
