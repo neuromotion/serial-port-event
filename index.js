@@ -3,7 +3,7 @@ require('dotenv').config();
 const fs = require('fs');
 const SerialPort = require('serialport')
 
-const event_code = process.env.EVENT_CODE;
+const event_code = parseInt(process.env.EVENT_CODE);
 const manufacturer = process.env.MANUFACTURER;
 
 const getPort = async () => {
@@ -16,9 +16,9 @@ const getPort = async () => {
   return port
 }
 
-const writeToPort = async() => {
+const sendToPort = async() => {
   const port = await getPort();
   port.write(Buffer.from([event_code]))
 }
 
-writeToPort();
+sendToPort();
