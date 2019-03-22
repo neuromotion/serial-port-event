@@ -1,10 +1,23 @@
 require('dotenv').config();
 
 const fs = require('fs');
-const SerialPort = require('serialport')
+const SerialPort = require('serialport');
 
-const event_code = parseInt(process.env.EVENT_CODE);
 const manufacturer = process.env.MANUFACTURER;
+const event_code = process.env.EVENT_CODE;
+
+const isPort = async () => {
+  const portList = await SerialPort.list()
+  const device = portList.filter((device) => {
+    return device.manufacturer === manufacturer;
+  })
+  if (device.length === 1) {
+    return true
+  }
+  else {
+    return false
+  }
+}
 
 const getPort = async () => {
   const portList = await SerialPort.list()
@@ -16,9 +29,10 @@ const getPort = async () => {
   return port
 }
 
-const sendToPort = async() => {
-  const port = await getPort();
-  port.write(Buffer.from([event_code]))
+const port = getPort();
+
+const sendToPort = async (port, event_code) => {
+  port.then(p => p.write(Buffer.from([event_code])))
 }
 
-sendToPort();
+sendToPort(port, event_code)
