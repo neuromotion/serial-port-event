@@ -10,10 +10,11 @@ Find the manufacturer of the device and add to `.env` file.
 ```shell
 npm run find
 ```
-This will print all objects with serial port connections to the terminal. Find the corresponding device, and add the `manufacturer` to the `.env` file.  
+This will print all objects with serial port connections to the terminal. Find the corresponding device, and add the `vendorId` and `productId` to the `.env` file.  
 For example:
 ```ini
-MANUFACTURER=Teensyduino
+VENDORID=16c0
+PRODUCTID=0483
 EVENT_CODE=1
 ```
 ##### Run script  
