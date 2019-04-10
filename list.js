@@ -1,8 +1,8 @@
 require('dotenv').config();
 
 const SerialPort = require('serialport');
+const vendorId = process.env.VENDORID;
+const productId = process.env.PRODUCTID;
 
-const event_code = parseInt(process.env.EVENT_CODE);
-const manufacturer = process.env.MANUFACTURER;
-
-SerialPort.list().then(console.log);
+// SerialPort.list().then(values => values.filter(v => ((v.vendorId === vendorId.toUpperCase() || v.vendorId === vendorId)  && v.productId === productId))).then(console.log);
+SerialPort.list().then(console.log)
